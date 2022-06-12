@@ -10,11 +10,12 @@ public:
 	
 	void update(double next) override;
 	double eval() const override;
-	const char* name() const override;
 
 private:
 	double m_max;
 	int i;
+
+	const std::string name() const override;
 };
 
 #endif /* MAX_H_ */

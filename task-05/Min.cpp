@@ -1,8 +1,7 @@
-#include <iostream>
 #include <limits>
 #include "Min.h"
 
-	Min::Min() : m_min{0}, i{0} {}
+	Min::Min() : m_min{std::numeric_limits<double>::min()}, i{0} {}
 	
 	void Min::update(double next)
 	{
@@ -22,7 +21,8 @@
 		return m_min;
 	}
 
-	const char* Min::name() const
+	const std::string Min::name() const 
 	{
-		return "min";
+		std::string c_str("min");
+		return c_str;
 	}

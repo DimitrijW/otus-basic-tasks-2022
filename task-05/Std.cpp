@@ -4,27 +4,27 @@
 
 	void Std::update(double next)
 	{
-		double quad_std = 0;
-		double x = 0;
 		v.push_back(next);
 		sum += next;
 		m_mean = sum / i;
 		i++;
-		for (int j = 1; j < i; j++)
+	}
+
+	double Std::eval() const
+	{
+		double quad_std = 0;
+		double x = 0;
+		for (int j = 1; j < i; j++) 
 		{
 			quad_std += abs((v[j] - m_mean) * (v[j] - m_mean));
 			x = quad_std;
 			x /= (i);
 		}
-		m_std = sqrt(x);
+		return sqrt(x);
 	}
 
-	double Std::eval() const
+	const std::string Std::name() const 
 	{
-		return m_std;
-	}
-
-	const char* Std::name() const
-	{
-		return "std";
+		std::string c_str("std");
+		return c_str;
 	}

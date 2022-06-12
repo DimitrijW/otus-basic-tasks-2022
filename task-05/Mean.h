@@ -10,12 +10,13 @@ public:
 
 	void update(double next) override;
 	double eval() const override;
-	const char* name() const override;
+	double m_mean;
 
 private:
-	double m_mean;
 	double sum;
 	int i;
+
+	const std::string name() const override;
 };
 
 #endif /* MEAN_H_ */

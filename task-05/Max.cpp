@@ -1,28 +1,28 @@
-#include <iostream>
 #include <limits>
 #include "Max.h"
 
-	Max::Max() : m_max{0}, i{0} {}
+	Max::Max() : m_max{std::numeric_limits<double>::max()}, i{0} {}
 
-	void Max::update(double next)
+	void Max::update(double next) 
 	{
-		while (i < 1)
+		if (i < 1) 
 		{
 			m_max = next;
-			i++;
+		 	i++;
 		}
-		if (next >= m_max)
+		if (next >= m_max) 
 		{
 			m_max = next;
 		}
 	}
 
-	double Max::eval() const
+	double Max::eval() const 
 	{
 		return m_max;
 	}
 
-	const char* Max::name() const
+	const std::string Max::name() const 
 	{
-		return "max";
+		std::string c_str("max");
+		return c_str;
 	}

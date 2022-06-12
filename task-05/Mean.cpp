@@ -14,7 +14,8 @@
 		return m_mean;
 	}
 
-	const char* Mean::name() const
+	const std::string Mean::name() const 
 	{
-		return "mean";
+		std::string c_str("mean");
+		return c_str;
 	}
