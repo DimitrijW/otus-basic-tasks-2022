@@ -1,24 +1,21 @@
 #include "Std.h"
-
-	Std::Std() : m_std{0}, sum{0}, m_mean{0}, i{1} {}
+	Std::Std() : m_std{0} {}
 
 	void Std::update(double next)
 	{
 		v.push_back(next);
-		sum += next;
-		m_mean = sum / i;
-		i++;
+		mean_.update(next);
 	}
 
 	double Std::eval() const
 	{
 		double quad_std = 0;
 		double x = 0;
-		for (int j = 1; j < i; j++) 
+		for (int j = 1; j <= v.size(); j++)
 		{
-			quad_std += abs((v[j] - m_mean) * (v[j] - m_mean));
+			quad_std += abs((v[j] - mean_.m_mean) * (v[j] - mean_.m_mean));
 			x = quad_std;
-			x /= (i);
+			x /= v.size();
 		}
 		return sqrt(x);
 	}

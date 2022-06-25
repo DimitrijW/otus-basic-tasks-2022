@@ -4,6 +4,7 @@
 #include <math.h>
 #include <vector>
 #include "IStatistics.h"
+#include "Mean.h"
 
 class Std : public IStatistics
 {
@@ -15,12 +16,9 @@ public:
 
 private:
 	double m_std;
-	double sum;
-	double m_mean;
-	int i;
-	double x;
+	Mean mean_;
 	std::vector<double> v;
-
+	
 	const std::string name() const override;
 };
 

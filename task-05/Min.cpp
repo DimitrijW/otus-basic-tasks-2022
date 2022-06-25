@@ -1,15 +1,10 @@
 #include <limits>
 #include "Min.h"
 
-	Min::Min() : m_min{std::numeric_limits<double>::min()}, i{0} {}
+	Min::Min() : m_min{std::numeric_limits<double>::max()}, i{0} {}
 	
 	void Min::update(double next)
 	{
-		if (i < 1)
-		{
-			m_min = next;
-			i++;
-		}
 		if (next <= m_min)
 		{
 			m_min = next;
